@@ -1,0 +1,15 @@
+div.proteinAtlas-view-Scene {
+    position: relative;
+    background: #040201;
+    display: block;
+    overflow: hidden;
+}
+
+div.proteinAtlas-view-Scene > svg {
+    position: absolute;
+    margin: -500px;
+    width: 1000px;
+    height: 1000px;
+    left: 50%;
+    top: 50%;
+}

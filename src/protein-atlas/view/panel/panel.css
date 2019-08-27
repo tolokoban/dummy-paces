@@ -1,0 +1,15 @@
+div.proteinAtlas-view-Panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+div.proteinAtlas-view-Panel > div {
+    flex: 0 0 auto;
+}
+
+div.proteinAtlas-view-Panel > div:nth-child(3) {
+    flex: 1 1 auto;
+}
