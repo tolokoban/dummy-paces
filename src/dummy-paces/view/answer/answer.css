@@ -1,0 +1,42 @@
+div.dummyPaces-view-Answer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    background-image: url(./skull.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    pointer-events: none;
+
+    transition: all .3s;
+    transition: scale(0);
+    opacity: 0;
+}
+
+div.dummyPaces-view-Answer.visible {
+    pointer-events: all;
+
+    transition: all .3s;
+    transition: scale(1);
+    opacity: 1;
+}
+
+div.dummyPaces-view-Answer > div.answer {
+    font-size: 200%;
+    font-weight: bold;
+    padding: 2rem 1rem;
+}
+
+div.dummyPaces-view-Answer > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}

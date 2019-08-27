@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './protein-atlas/app';
+import App from './dummy-paces/app';
 import * as serviceWorker from './serviceWorker';
 
 import Theme from "./tfw/theme"

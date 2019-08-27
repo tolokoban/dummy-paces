@@ -6,8 +6,8 @@ export interface IQuestion {
 }
 
 export interface ICategory {
-    id: number,
-    parent: number,
+    id: string,
+    parent?: string,
     label: string,
     questions: IQuestion[]
 }
