@@ -29,9 +29,9 @@ div.dummyPaces-view-Answer.visible {
 }
 
 div.dummyPaces-view-Answer > div.answer {
-    font-size: 200%;
+    font-size: 140%;
     font-weight: bold;
-    padding: 2rem 1rem;
+    padding: .5rem .5rem;
 }
 
 div.dummyPaces-view-Answer > div {

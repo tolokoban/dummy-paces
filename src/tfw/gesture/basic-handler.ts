@@ -120,6 +120,7 @@ export default class BasicHandler {
                 handleMove: TBasicHandler) {
         this.element = element;
         attachDownEvent.call(this, handleDown, handleUp, handleMove);
+        attachUpEventTouch.call(this, handleDown, handleUp, handleMove);
     }
 
     /**
@@ -143,9 +144,10 @@ export default class BasicHandler {
 
     detachEvents() {
         const element = this.element;
-        const { touchstart, mousedown } = this.deviceHandlers;
+        const { touchstart, touchend, mousedown } = this.deviceHandlers;
 
         if (touchstart) element.removeEventListener("touchstart", touchstart, false);
+        if (touchend) element.removeEventListener("touchend", touchend, false);
         if (mousedown) element.removeEventListener("mousedown", mousedown, false);
     }
 }
@@ -192,6 +194,36 @@ function attachDownEventTouch(this: BasicHandler,
     };
     deviceHandlers.touchstart = handler;
     element.addEventListener("touchstart", handler, false);
+}
+
+
+function attachUpEventTouch(this: BasicHandler,
+                            handleDown: TBasicHandler,
+                            handleUp: TBasicHandler,
+                            handleMove: TBasicHandler) {
+    const { element, deviceHandlers } = this;
+    const handler = (event: TouchEvent) => {
+        if (!this.checkMouseType("touch")) return;
+        const rect = element.getBoundingClientRect();
+        for (const touch of event.changedTouches) {
+            const index = this.fingers.getIndex(touch.identifier)
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            handleUp({
+                x,
+                y,
+                index,
+                event,
+                buttons: 1,
+                pointer: "touch",
+                target: element,
+                clear: createClear(event)
+            });
+        }
+        movingElements.splice(0, movingElements.length)
+    };
+    deviceHandlers.touchend = handler;
+    element.addEventListener("touchend", handler, false);
 }
 
 

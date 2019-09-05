@@ -52,6 +52,7 @@ export default class Question extends React.Component<IQuestionProps, {}> {
             </div>
             <div className="answer">
                 <Input
+                    focus={true}
                     onChange={this.handleAnswerChange}
                     onEnterPressed={this.handleAnswer}
                     type={isNumerical ? "number" : "text"}

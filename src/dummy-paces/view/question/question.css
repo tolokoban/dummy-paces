@@ -32,8 +32,9 @@ div.dummyPaces-view-Question > div.question {
 
 div.dummyPaces-view-Question > div.question > div {
     max-width: 360px;
-    font-size: 200%;
+    font-size: 130%;
     white-space: pre-wrap;
+    margin: .5rem;
 }
 
 div.dummyPaces-view-Question > header > div.score {

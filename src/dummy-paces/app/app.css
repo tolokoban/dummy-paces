@@ -1,7 +1,18 @@
+html, body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 div.dummyPaces-App {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;    
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
 }
