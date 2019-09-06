@@ -3,6 +3,10 @@ import { IQuestion, ICategory } from '../types'
 import Data from '../data'
 import Question from '../view/question'
 import Answer from '../view/answer'
+import Diagram from '../view/diagram'
+import Os from '../data/diagrams/os.svg'
+import Util from '../../tfw/util'
+import Random from '../../tfw/random'
 
 import "./app.css"
 
@@ -13,7 +17,10 @@ interface IAppState {
     currentAnswer: string,
     answerVisible: boolean,
     answersCount: number,
-    failuresCount: number
+    failuresCount: number,
+
+    currentDiagramCode: string,
+    currentDiagramItem: string
 }
 
 export default class App extends React.Component<{}, IAppState> {
@@ -31,7 +38,9 @@ export default class App extends React.Component<{}, IAppState> {
             currentAnswer: "",
             answerVisible: false,
             answersCount: 0,
-            failuresCount: 0
+            failuresCount: 0,
+            currentDiagramCode: "",
+            currentDiagramItem: ""
         }
     }
 
@@ -51,7 +60,7 @@ export default class App extends React.Component<{}, IAppState> {
         })
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const categories = Data.load();
         this.setState({
             categories,
@@ -61,6 +70,9 @@ export default class App extends React.Component<{}, IAppState> {
             answersCount: 0,
             failuresCount: 0
         })
+
+        const currentDiagramCode = await Util.loadTextFromURL(Os)
+        this.setState({ currentDiagramCode })
 
         const splash = document.getElementById('splash-screen');
         if (splash) {
@@ -97,6 +109,10 @@ export default class App extends React.Component<{}, IAppState> {
         this.setState({ answerVisible: false })
     }
 
+    handleDiagramItemsChange = (items: string[]) => {
+        this.setState({ currentDiagramItem: Random.pick(items) })
+    }
+
     render() {
         const {
             currentCategory, currentQuestionIndex, currentAnswer,
@@ -108,6 +124,10 @@ export default class App extends React.Component<{}, IAppState> {
         const question = currentCategory.questions[currentQuestionIndex];
 
         return (<div className="dummyPaces-App">
+            <Diagram htmlContent={this.state.currentDiagramCode}
+                itemToShow={this.state.currentDiagramItem}
+                onItemsChange={this.handleDiagramItemsChange}/>
+            {/*
             <Question
                 onAbort={this.handleAbort}
                 onAnswer={this.handleAnswer}
@@ -123,6 +143,7 @@ export default class App extends React.Component<{}, IAppState> {
                 answer={question.answer}
                 question={question.label}
                 onBackClick={this.handleCloseAnswer}/>
+            */}
         </div>)
     }
 }

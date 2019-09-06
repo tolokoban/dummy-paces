@@ -8,10 +8,10 @@ import Theme from "./tfw/theme"
 import "./tfw/font/josefin.css"
 
 Theme.register("default", {
-    white: "#fda", black: "#420",
-    bg0: "#ffcb97", bg1: "#ffdab3", bg2: "#ffe6cc", bg3: "#fff3e6",
-    bgP: "#742", bgPL: "#953", bgPD: "#531",
-    bgS: "#ff9f30", bgSD: "#ff7f00", bgSL: "#ffbf60"
+    white: "#adf", black: "#024",
+    bg0: "#97cbff", bg1: "#b3daff", bg2: "#cce6ff", bg3: "#e6f3ff",
+    bgP: "#247", bgPL: "#359", bgPD: "#135",
+    bgS: "#309fff", bgSD: "#007fff", bgSL: "#60bfff"
 });
 Theme.apply("default");
 
