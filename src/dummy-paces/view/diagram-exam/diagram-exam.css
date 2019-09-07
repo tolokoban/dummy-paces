@@ -1,0 +1,57 @@
+div.dummyPaces-view-DiagramExam {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+div.dummyPaces-view-DiagramExam > header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.dummyPaces-view-DiagramExam > header > div {
+    flex: 0 0 auto;
+}
+
+div.dummyPaces-view-DiagramExam > header > div.score {
+    padding: 0 .5rem;
+}
+
+div.dummyPaces-view-DiagramExam > div.dummyPaces-view-Diagram {
+    flex: 1 1 auto;
+}
+
+div.dummyPaces-view-DiagramExam > div.answer {
+    position: relative;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+}
+
+div.dummyPaces-view-DiagramExam > div.answer > div.error {
+    background: red;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -3,7 +3,7 @@ import { IQuestion, ICategory } from '../types'
 import Data from '../data'
 import Question from '../view/question'
 import Answer from '../view/answer'
-import Diagram from '../view/diagram'
+import DiagramExam from '../view/diagram-exam'
 import Os from '../data/diagrams/os.svg'
 import Util from '../../tfw/util'
 import Random from '../../tfw/random'
@@ -124,9 +124,9 @@ export default class App extends React.Component<{}, IAppState> {
         const question = currentCategory.questions[currentQuestionIndex];
 
         return (<div className="dummyPaces-App">
-            <Diagram htmlContent={this.state.currentDiagramCode}
-                itemToShow={this.state.currentDiagramItem}
-                onItemsChange={this.handleDiagramItemsChange}/>
+            <DiagramExam
+                diagramCode={this.state.currentDiagramCode}
+                diagramLabel="Tissus osseux"/>
             {/*
             <Question
                 onAbort={this.handleAbort}
