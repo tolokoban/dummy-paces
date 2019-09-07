@@ -34,6 +34,15 @@ export default class DiagramExam extends React.Component<IDiagramExamProps, IDia
         }
     }
 
+    pickNewSolution(items: string[]) {
+        const currentSolution = this.state.solution
+        for (let i=0 ; i<10 ; i++) {
+            const solution = Rnd.pick(items)
+            if (solution !== currentSolution) return solution
+        }
+        return Rnd.pick(items)
+    }
+
     handleAnswerChange = (answer: string) => {
         this.setState({ answer })
     }
@@ -41,13 +50,17 @@ export default class DiagramExam extends React.Component<IDiagramExamProps, IDia
     handleAnswer = (answer: string) => {
         if (answer.toLowerCase() === this.state.solution.toLowerCase()) {
             if (this.state.attempts === 19) {
-                Dialog.alert(<div><p>Votre score :</p><p><b>{this.state.successes} / 20</b></p></div>)
+                Dialog.alert(
+                    <div><p>Votre score :</p><p><b>{this.state.successes} / 20</b></p></div>,
+                    () => window.location.reload()
+                )
             }
+            const solution = this.pickNewSolution(this.state.items)
             this.setState({
                 answer: '',
                 attempts: this.state.attempts + 1,
                 successes: this.state.successes + 1,
-                solution: Rnd.pick(this.state.items)
+                solution
             })
         } else {
             this.setState({ failure: true })
@@ -55,9 +68,11 @@ export default class DiagramExam extends React.Component<IDiagramExamProps, IDia
     }
 
     handleItemsChange = (items: string[]) => {
+        const solution = this.pickNewSolution(items)
+        console.info("solution=", solution);
         this.setState({
             items, attempts: 0, successes: 0,
-            answer: '', solution: Rnd.pick(items)
+            answer: '', solution
          })
     }
 
