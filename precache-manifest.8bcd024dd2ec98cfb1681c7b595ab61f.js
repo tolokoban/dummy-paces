@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "df5faa9c8cc8c2ec36f66d718e1464af",
+    "revision": "731612a52585d8c7ddc21a3b175b321a",
     "url": "./index.html"
   },
   {
-    "revision": "f674f5e70ff170817804",
+    "revision": "fb5ae6ba364354500902",
     "url": "./static/css/main.bdfc7317.chunk.css"
   },
   {
@@ -12,24 +12,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/js/2.dd98de0c.chunk.js"
   },
   {
-    "revision": "f674f5e70ff170817804",
-    "url": "./static/js/main.2117be8d.chunk.js"
+    "revision": "fb5ae6ba364354500902",
+    "url": "./static/js/main.df7bfa13.chunk.js"
   },
   {
     "revision": "68a3fb0be5d7c760753f",
     "url": "./static/js/runtime~main.f0f2408c.js"
   },
   {
-    "revision": "78a0f8d3b617bdf482fd63afa14b75b4",
-    "url": "./static/media/cils-vibratiles.78a0f8d3.svg"
+    "revision": "7bafb63d7c9df2f6a3e37728f34406a6",
+    "url": "./static/media/cils-vibratiles.7bafb63d.svg"
   },
   {
     "revision": "7270440b8ddb42ebfe9fba9297a3563d",
     "url": "./static/media/josefin.7270440b.woff2"
   },
   {
-    "revision": "b6cb4280935a7aabc869680269722c83",
-    "url": "./static/media/mendeleev.b6cb4280.svg"
+    "revision": "1abf7eb677d08ddd6ab42040d5b9fc5e",
+    "url": "./static/media/mendeleev.1abf7eb6.svg"
   },
   {
     "revision": "ae1d27145c63be7403903d0697b76316",
