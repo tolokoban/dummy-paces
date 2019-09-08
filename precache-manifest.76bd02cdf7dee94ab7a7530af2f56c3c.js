@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "183798dc8eced875b4f555ba02af69ed",
+    "revision": "df5faa9c8cc8c2ec36f66d718e1464af",
     "url": "./index.html"
   },
   {
-    "revision": "9ebb7b4bcc15a02027a1",
-    "url": "./static/css/main.bbdc38df.chunk.css"
+    "revision": "f674f5e70ff170817804",
+    "url": "./static/css/main.bdfc7317.chunk.css"
   },
   {
     "revision": "d16f5ad1ff057046fc0e",
     "url": "./static/js/2.dd98de0c.chunk.js"
   },
   {
-    "revision": "9ebb7b4bcc15a02027a1",
-    "url": "./static/js/main.2c6ed542.chunk.js"
+    "revision": "f674f5e70ff170817804",
+    "url": "./static/js/main.2117be8d.chunk.js"
   },
   {
     "revision": "68a3fb0be5d7c760753f",
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "./static/media/josefin.7270440b.woff2"
   },
   {
-    "revision": "aab6830b9d317841488c80629165f218",
-    "url": "./static/media/mendeleev.aab6830b.svg"
+    "revision": "b6cb4280935a7aabc869680269722c83",
+    "url": "./static/media/mendeleev.b6cb4280.svg"
   },
   {
     "revision": "ae1d27145c63be7403903d0697b76316",
