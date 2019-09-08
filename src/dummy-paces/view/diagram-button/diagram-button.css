@@ -1,0 +1,27 @@
+div.dummyPaces-view-DiagramButton {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .5s;
+    margin: 2vmin;
+}
+
+div.dummyPaces-view-DiagramButton.hide {
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+div.dummyPaces-view-DiagramButton > img {
+    width: 40vmin;
+    height: 40vmin;
+    border-radius: 4vmin;
+}
+
+div.dummyPaces-view-DiagramButton > div {
+    margin-top: 1rem;
+    font-size: 3vmin;
+    text-align: center;
+}

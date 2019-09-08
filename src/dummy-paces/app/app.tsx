@@ -4,23 +4,28 @@ import Data from '../data'
 import Question from '../view/question'
 import Answer from '../view/answer'
 import DiagramExam from '../view/diagram-exam'
-import Os from '../data/diagrams/os.svg'
+import DiagramButton from '../view/diagram-button'
 import Util from '../../tfw/util'
 import Random from '../../tfw/random'
 
 import "./app.css"
 
-interface IAppState {
-    categories: ICategory[],
-    currentCategory: ICategory,
-    currentQuestionIndex: number,
-    currentAnswer: string,
-    answerVisible: boolean,
-    answersCount: number,
-    failuresCount: number,
+import DiagOs from '../data/diagrams/os.svg'
+import DiagCilsVibratils from '../data/diagrams/cils-vibratiles.svg'
+import DiagMendeleev from '../data/diagrams/mendeleev.svg'
 
+const BUTTONS = [
+    ["Tissus osseux", DiagOs],
+    ["Cils vibratils", DiagCilsVibratils],
+    ["Tableau périodique", DiagMendeleev]
+]
+
+
+interface IAppState {
+    menuVisible: boolean,
     currentDiagramCode: string,
-    currentDiagramItem: string
+    currentDiagramItem: string,
+    currentDiagramLabel: string
 }
 
 export default class App extends React.Component<{}, IAppState> {
@@ -28,52 +33,14 @@ export default class App extends React.Component<{}, IAppState> {
         super( props );
 
         this.state = {
-            categories: [],
-            currentCategory: {
-                id: "",
-                label: "",
-                questions: []
-            },
-            currentQuestionIndex: 0,
-            currentAnswer: "",
-            answerVisible: false,
-            answersCount: 0,
-            failuresCount: 0,
+            menuVisible: true,
             currentDiagramCode: "",
-            currentDiagramItem: ""
+            currentDiagramItem: "",
+            currentDiagramLabel: ""
         }
     }
 
-    nextQuestion() {
-        const { categories } = this.state
-        const currentCategory = categories[0]
-
-        const currentQuestionIndex = Math.floor(
-            Math.random() * currentCategory.questions.length
-        )
-
-        this.setState({
-            currentCategory,
-            currentQuestionIndex,
-            currentAnswer: "",
-            answerVisible: false
-        })
-    }
-
     async componentDidMount() {
-        const categories = Data.load();
-        this.setState({
-            categories,
-            currentCategory: categories[0],
-            currentQuestionIndex: Math.floor(
-                Math.random() * categories[0].questions.length),
-            answersCount: 0,
-            failuresCount: 0
-        })
-
-        const currentDiagramCode = await Util.loadTextFromURL(Os)
-        this.setState({ currentDiagramCode })
-
         const splash = document.getElementById('splash-screen');
         if (splash) {
             splash.classList.add("vanish");
@@ -81,69 +48,39 @@ export default class App extends React.Component<{}, IAppState> {
         }
     }
 
-    handleAbort = () => {}
-
-    handleAnswer = () => {
-        const {
-            currentCategory, currentQuestionIndex, currentAnswer,
-            answersCount, failuresCount
-        } = this.state;
-        const question = currentCategory.questions[currentQuestionIndex];
-        const expectedAnswer = question.answer.toLowerCase();
-        if (currentAnswer.toLowerCase() !== expectedAnswer) {
-            this.setState({
-                answerVisible: true, failuresCount: failuresCount + 1
-            });
-        }
-        else {
-            this.nextQuestion();
-        }
-        this.setState({ answersCount: answersCount + 1, currentAnswer: "" })
-    }
-
-    handleAnswerChange = (currentAnswer: string) => {
-        this.setState({ currentAnswer });
-    }
-
-    handleCloseAnswer = () => {
-        this.setState({ answerVisible: false })
-    }
-
     handleDiagramItemsChange = (items: string[]) => {
         this.setState({ currentDiagramItem: Random.pick(items) })
     }
 
+    handleButtonClick = (code: string, label: string) => {
+        this.setState({
+            menuVisible: false,
+            currentDiagramCode: code,
+            currentDiagramLabel: label
+        })
+    }
+
+    handleBack = () => {
+        this.setState({ menuVisible: true })
+    }
+
     render() {
-        const {
-            currentCategory, currentQuestionIndex, currentAnswer,
-            answerVisible, answersCount, failuresCount
-        } = this.state;
-        if (!currentCategory) return null;
-        if (currentCategory.questions.length === 0) return null;
+        const { menuVisible, currentDiagramCode, currentDiagramLabel } = this.state
 
-        const question = currentCategory.questions[currentQuestionIndex];
-
-        return (<div className="dummyPaces-App">
+        return (<div className="dummyPaces-App">{
+            menuVisible ?
+            <div className='buttons'>{
+                BUTTONS.map((item: string[]) => {
+                    const [label, url] = item
+                    return <DiagramButton
+                                key={label} label={label} url={url}
+                                onClick={this.handleButtonClick} />
+            })}</div> :
             <DiagramExam
-                diagramCode={this.state.currentDiagramCode}
-                diagramLabel="Tissus osseux"/>
-            {/*
-            <Question
-                onAbort={this.handleAbort}
-                onAnswer={this.handleAnswer}
-                onAnswerChange={this.handleAnswerChange}
-                answersCount={answersCount}
-                questionIndex={currentQuestionIndex}
-                failuresCount={failuresCount}
-                isNumerical={false}
-                category={currentCategory}
-                answer={currentAnswer}/>
-            <Answer
-                visible={answerVisible}
-                answer={question.answer}
-                question={question.label}
-                onBackClick={this.handleCloseAnswer}/>
-            */}
+                diagramCode={currentDiagramCode}
+                diagramLabel={currentDiagramLabel}
+                onBackClick={this.handleBack}/>
+            }
         </div>)
     }
 }

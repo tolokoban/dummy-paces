@@ -9,7 +9,8 @@ import "./diagram-exam.css"
 
 interface IDiagramExamProps {
     diagramCode: string,
-    diagramLabel: string
+    diagramLabel: string,
+    onBackClick: () => void
 }
 
 interface IDiagramExamState {
@@ -77,11 +78,17 @@ export default class DiagramExam extends React.Component<IDiagramExamProps, IDia
     }
 
     handleErrorClick = () => {
+        if (this.state.failure !== true) return;
+        
         this.setState({
             attempts: this.state.attempts + 1,
             answer: '',
             failure: false
         })
+    }
+
+    handleBackClick = () => {
+        this.props.onBackClick()
     }
 
     render() {
@@ -90,7 +97,7 @@ export default class DiagramExam extends React.Component<IDiagramExamProps, IDia
 
         return (<div className="dummyPaces-view-DiagramExam">
             <header className="thm-bgPD">
-                <Icon content="back" />
+                <Icon content="back" onClick={this.handleBackClick}/>
                 <div className="title">{diagramLabel}</div>
                 <div className="score">
                     <span className="score">{successes}</span>
