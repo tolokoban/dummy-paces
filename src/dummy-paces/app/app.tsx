@@ -11,10 +11,12 @@ import Random from '../../tfw/random'
 import "./app.css"
 
 import DiagOs from '../data/diagrams/os.svg'
+import DiagItalia from '../data/diagrams/italia.svg'
 import DiagCilsVibratils from '../data/diagrams/cils-vibratiles.svg'
 import DiagMendeleev from '../data/diagrams/mendeleev.svg'
 
 const BUTTONS = [
+    ["Régions italiennes", DiagItalia],
     ["Tissus osseux", DiagOs],
     ["Cils vibratils", DiagCilsVibratils],
     ["Tableau périodique", DiagMendeleev]
