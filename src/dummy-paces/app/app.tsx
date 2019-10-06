@@ -14,8 +14,10 @@ import DiagOs from '../data/diagrams/os.svg'
 import DiagItalia from '../data/diagrams/italia.svg'
 import DiagCilsVibratils from '../data/diagrams/cils-vibratiles.svg'
 import DiagMendeleev from '../data/diagrams/mendeleev.svg'
+import DiagLigneeOsteoclastique from '../data/diagrams/lignee-osteoclastique.svg'
 
 const BUTTONS = [
+    ["Lignéé ostéoclastique", DiagLigneeOsteoclastique],
     ["Régions italiennes", DiagItalia],
     ["Tissus osseux", DiagOs],
     ["Cils vibratils", DiagCilsVibratils],
