@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a71e3a9e23d51862f19d399493a4cdeb",
+    "revision": "2e31083b5806daaa2e47bb266ab185af",
     "url": "./index.html"
   },
   {
-    "revision": "06ea3ae098d3b2dd5553",
-    "url": "./static/css/main.bdfc7317.chunk.css"
+    "revision": "df7ddf6bae4d9a436b07",
+    "url": "./static/css/main.8b4cabcf.chunk.css"
   },
   {
-    "revision": "5c74ec1634935e42a785",
-    "url": "./static/js/2.b9f2cc5c.chunk.js"
+    "revision": "57b9dc8772737538c75f",
+    "url": "./static/js/2.767d235f.chunk.js"
   },
   {
-    "revision": "06ea3ae098d3b2dd5553",
-    "url": "./static/js/main.76a27a9b.chunk.js"
+    "revision": "df7ddf6bae4d9a436b07",
+    "url": "./static/js/main.1eeecee1.chunk.js"
   },
   {
     "revision": "68a3fb0be5d7c760753f",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7270440b8ddb42ebfe9fba9297a3563d",
     "url": "./static/media/josefin.7270440b.woff2"
+  },
+  {
+    "revision": "e4fd9243f7e5e796f4941347eac77fef",
+    "url": "./static/media/lignee-osteoclastique.e4fd9243.svg"
   },
   {
     "revision": "1abf7eb677d08ddd6ab42040d5b9fc5e",
